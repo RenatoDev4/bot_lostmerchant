@@ -117,7 +117,7 @@ server = "Kazeros / SA"
 # Function to send the message to the telegram group
 
 def send_message(message):
-    apiToken = '5805754523: AAFIthNp4MtRuN3bbzpyD2gYqFOCFHxQDWg'
+    apiToken = '5805754523:AAFIthNp4MtRuN3bbzpyD2gYqFOCFHxQDWg'
     chatID = '-1001538174798'
     bot = telebot.TeleBot(apiToken)
 
