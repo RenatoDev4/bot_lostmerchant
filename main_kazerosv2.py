@@ -2,15 +2,17 @@
 import datetime
 import os.path
 import re
+import time
 from collections import defaultdict
 
-import telebot  # type:ignore
-from bs4 import BeautifulSoup  # type:ignore
-from selenium import webdriver  # type:ignore
-from selenium.webdriver.chrome.options import Options  # type:ignore
-from selenium.webdriver.common.by import By  # type:ignore
-from selenium.webdriver.support import expected_conditions as EC  # type:ignore
-from selenium.webdriver.support.ui import Select, WebDriverWait  # type:ignore
+import telebot
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 # Class to scrape the website
@@ -33,6 +35,7 @@ class WebsiteScraper:
         self.select_server_region()
         self.select_server()
         html_content = self.get_html_content()
+        time.sleep(3)
         self.close_driver()
         return html_content
 
@@ -106,10 +109,9 @@ if __name__ == "__main__":
         [s for s in dic_merchant['local'] if isinstance(s, str)])
     itens_str = ' '.join(
         [s for s in dic_merchant['itens'] if isinstance(s, str)])
-    print(local_str, itens_str)
 
 # Server
-servidor = "Kazeros / SA"
+server = "Kazeros / SA"
 
 
 # Function to send the message to the telegram group
@@ -182,10 +184,10 @@ itens_matches = [re.search(word, itens_str)  # type:ignore
 
 
 # Define a function to create the message string for a legendary report
-def create_legendary_message(servidor, location, item_name, map_url, final_t):
+def create_legendary_message(server, location, item_name, map_url, final_t):
     location_map = location.split()[1]
     message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-    message += f"<b>Servidor:</b> {servidor}\n"
+    message += f"<b>Servidor</b> {server}\n"
     message += f"<b>Local:</b> {location}\n"
     message += f"<b>Item:</b> {item_name}\n"
     message += f"<b>Mapa: <a href='{map_url}'>{location_map}</a></b>\n\n"
@@ -399,7 +401,7 @@ for item_dict in rapport_and_locations:
         for loc in locations:
             if loc['location'] in local_str:  # type:ignore
                 message = create_legendary_message(
-                    servidor, loc['location'], item, loc['map_url'], final_t)  # type:ignore # noqa
+                    server, loc['location'], item, loc['map_url'], final_t)  # type:ignore # noqa
                 send_message(message)
                 break  # Stop searching for this item if it was already found and reported # noqa
 
@@ -407,4 +409,4 @@ for item_dict in rapport_and_locations:
 # Print message to console to check if everything is working
 now = datetime.datetime.now()
 dt_string = now.strftime("%d-%m-%Y %H:%M:%S")
-print(f'Busca concluida com sucesso / {servidor} / {dt_string}')
+print(f'Busca concluida com sucesso / {server} / {dt_string}')
