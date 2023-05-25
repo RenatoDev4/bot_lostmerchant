@@ -4,8 +4,8 @@ from main_kazeros_heroku import run_bot
 
 parameters = [
     ("South America", "Kazeros", "Kazeros / SA", '-1001538174798'),
-    ("South America", "Arthetine", "Arthetine / SA", '-1001878906754'),
-    ("South America", "Blackfang", "Blackfang / SA", '-1001868489245'),
+    ("South America", "Arthetine", "Arthetine / SA", '-1001538174798'),
+    ("South America", "Blackfang", "Blackfang / SA", '-1001538174798'),
 ]
 
 for params in parameters:
