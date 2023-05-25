@@ -40,6 +40,8 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
     select2 = Select(dropdown2)
     select2.select_by_visible_text(dropdown2_text)
 
+    time.sleep(5)
+
     # URL PROCURA PRODUTO
     html_content = driver.page_source
 
