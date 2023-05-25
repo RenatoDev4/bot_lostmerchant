@@ -13,7 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
 
-def run_bot(dropdown_server_region_text, server, dropdown2_text, chatID, file_path):
+def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_path):
 
     # URL
     chrome_options = Options()
