@@ -26,9 +26,6 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
     driver = webdriver.Chrome(service=service, options=chrome_options)
     driver.get("https://lostmerchants.com/")
 
-    # Localiza o menu usando seu ID
-    time.sleep(5)
-
     dropdown_server_region = WebDriverWait(driver, 30).until(
         EC.presence_of_element_located((By.ID, "severRegion")))
 
