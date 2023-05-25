@@ -35,7 +35,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, chatID, file_path):
     select1 = Select(dropdown_server_region)
     select1.select_by_visible_text(dropdown_server_region_text)
 
-    dropdown2 = driver.find_element(By.ID, dropdown2_text)
+    dropdown2 = driver.find_element(By.ID, "server")
 
     select2 = Select(dropdown2)
     select2.select_by_visible_text(dropdown2_text)
