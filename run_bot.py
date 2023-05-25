@@ -32,7 +32,7 @@ parameters = [
     ("EU Central", "Armen", "Armen / EU Central", '-1001900639552'),
     ("EU Central", "Asta", "Asta / EU Central", '-1001551334555'),
     ("EU Central", "Calvasus", "Calvasus / EU Central", '-1001888719445'),
-    ("EU Central", "Evergrace", "Evergrace / EU Central", '-602541064'),
+    ("EU Central", "Evergrace", "Evergrace / EU Central", '-1001811918030'),
     ("EU Central", "Ezrebet", "Ezrebet / EU Central", '-1001811918030'),
     ("EU Central", "Kadan", "Kadan / EU Central", '-1001809249498'),
     ("EU Central", "Lazenith", "Lazenith / EU Central", '-1001976411910'),
