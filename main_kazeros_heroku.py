@@ -13,7 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
 
-def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_path):
+def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
 
     # URL
     chrome_options = Options()
@@ -58,24 +58,11 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
 
     # Função enviar mensagem do BOT
 
-    def send_message(mensagem, chatID, file_path):
+    def send_message(mensagem, chatID):
 
         apiToken = '5805754523:AAFIthNp4MtRuN3bbzpyD2gYqFOCFHxQDWg'
         bot = telebot.TeleBot(apiToken)
-        # Read the list of messages already sent from a file
-        with open(file_path, 'r') as f:
-            sent_messages = f.read().splitlines()
-
-        # Check if the new message is in the list of sent messages
-        if message not in sent_messages:
-            # Send the message
-            bot.send_message(chat_id=chatID, text=message, parse_mode='HTML')
-
-            # If the message is sent successfully, save it to the file
-            with open(file_path, 'a') as f:
-                f.write(mensagem + '\n')
-        else:
-            pass
+        bot.send_message(chat_id=chatID, text=message, parse_mode='HTML')
 
     # COMEÇA O WEB SCRAPING
 
@@ -163,7 +150,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{log_hill_url}'>Log Hill</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Ankumo Mountain" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -173,7 +160,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{ankumo_mountain_url}'>Ankumo Mountain</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Rethramis Border" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -183,7 +170,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{rethramis_border}'>Rethramis Border</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ YUDIA ------
 
@@ -201,7 +188,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{saland_hill_url}'>Saland Hill</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Ozhorn Hill' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -211,7 +198,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{ozhorn_hill_url}'>Ozhorn Hill</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ WEST LUTERRA ------
 
@@ -232,7 +219,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{mount_zagoras_url}'>Mount Zagoras</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Lakebar' in local_str and 'Chain War Chronicles' not in processed_itens:
@@ -243,7 +230,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{lakebar_url}'>Lakebar</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Medrick Monastery' in local_str and 'Chain War Chronicles' not in processed_itens:
@@ -254,7 +241,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{medrick_monastery}'>Medrick Monastery</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Bilbrin Forest' in local_str and 'Chain War Chronicles' not in processed_itens:
@@ -265,7 +252,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{bilbrin_forest}'>Bilbrin Forest</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Battlebound Plains' in local_str and 'Chain War Chronicles' not in processed_itens:
@@ -276,7 +263,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{battlebound_plains}'>Battlebound Plains</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
     # ------ EAST LUTERRA (MORRIS) ------
@@ -296,7 +283,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{dyorika_plains}'>Dyorika Plain</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Sunbright Hill' in local_str and 'Chain War Chronicles' not in processed_itens:
@@ -307,7 +294,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{sunbright_hill}'>Sunbright Hill</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Flowering Orchard' in local_str and 'Chain War Chronicles' not in processed_itens:
@@ -318,7 +305,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{flowering_orchard}'>Flowering Orchard</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
     # ------ EAST LUTERRA (BURT) ------
@@ -339,7 +326,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{blackrose_chapel}'>Blackrose Chapel</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Leyar Terrace' in local_str and 'Chain War Chronicles' not in processed_itens:
@@ -350,7 +337,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{leyar_terrace}'>Leyar Terrace</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif "Borea's Domain" in local_str and 'Chain War Chronicles' not in processed_itens:
@@ -361,7 +348,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{boreas_domain}'>Borea's Domain</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif "Croconys Seashore" in local_str and 'Chain War Chronicles' not in processed_itens:
@@ -372,7 +359,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{croconys_seashore}'>Croconys Seashore</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
     # ------ TORTOYK ------
@@ -393,7 +380,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{seaswept_woods}'>Seaswept Woods</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Sweetwater Forest' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -403,7 +390,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{sweetwater_forest}'>Sweetwater Forest</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Skyreach Steppe' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -413,7 +400,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{skyreach_steppe}'>Skyreach Steppe</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Forest of Giants' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -423,7 +410,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{forest_of_giants}'>Forest of Giants</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ ANIKKA ------
 
@@ -444,7 +431,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{delphi_township}'>Delphi Township</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Rattan Hill' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -454,7 +441,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{rattan_hill}'>Rattan Hill</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Melody Forest' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -464,7 +451,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{melody_forest}'>Melody Forest</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Twilight Mists' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -474,7 +461,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{twilight_mists}'>Twilight Mists</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Prisma Valley' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -484,7 +471,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{prisma_valley}'>Prisma Valley</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ ANIKKA WEI ------
 
@@ -505,7 +492,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{delphi_township}'>Delphi Township</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Rattan Hill' in local_str:
             message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
@@ -515,7 +502,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{rattan_hill}'>Rattan Hill</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Melody Forest' in local_str:
             message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
@@ -525,7 +512,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{melody_forest}'>Melody Forest</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Twilight Mists' in local_str:
             message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
@@ -535,7 +522,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{twilight_mists}'>Twilight Mists</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Prisma Valley' in local_str:
             message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
@@ -545,7 +532,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{prisma_valley}'>Prisma Valley</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ ARTHETINE ------
 
@@ -567,7 +554,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{arid_path}'>Arid Path</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Scraplands' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -577,7 +564,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{scraplands}'>Scraplands</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Nebelhorn' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -587,7 +574,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{nebelhorn}'>Nebelhorn</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Windbringer Hills' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -597,7 +584,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{windbringer_hills}'>Windbringer Hills</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Totrich' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -607,7 +594,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{totrich}'>Totrich</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Riza Falls' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -617,7 +604,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{riza_falls}'>Riza Falls</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ NORTH VERN ------
 
@@ -638,7 +625,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{port_krona}'>Port Krona</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Parna Forest' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -648,7 +635,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{parna_forest}'>Parna Forest</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Fesnar Highland' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -658,7 +645,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{fesnar_highland}'>Fesnar Highland</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Vernese Forest' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -668,7 +655,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{vernese_forest}'>Vernese Forest</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Balankar Mountains' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -678,7 +665,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{balankar_mountains}'>Balankar Mountains</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ SHUSHIRE ------
 
@@ -699,7 +686,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{frozen_sea}'>Frozen Sea</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Bitterwind Hill' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -709,7 +696,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{bitterwind_hill}'>Bitterwind Hill</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Iceblood Plateau' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -719,7 +706,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{iceblood_plateau}'>Iceblood Plateau</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Lake Eternity' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -729,7 +716,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{lake_eternity}'>Lake Eternity</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Icewing Heights' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -739,7 +726,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{icewing_heights}'>Icewing Heights</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ ROHENDEL ------
 
@@ -760,7 +747,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{lake_shiverwave}'>Lake Shiverwave</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Glass Lotus Lake' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -770,7 +757,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{glass_lotus_lake}'>Glass Lotus Lake</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Breezesome Brae' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -780,7 +767,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{breezesome_brae}'>Breezesome Brae</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif 'Xeneela Ruins' in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -790,7 +777,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{xeneela_ruins}'>Xeneela Ruins</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Elzowin's Shade" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -800,7 +787,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{elzowins_shade}'>Elzowin's Shade</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ YORN ------
 
@@ -821,7 +808,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{yorns_cradle}'>Yorn's Cradle</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Unfinished Garden" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -831,7 +818,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{unfinished_garden}'>Unfinished Garden</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Black Anvil Mine" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -841,7 +828,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{black_anvil_mine}'>Black Anvil Mine</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Iron Hammer Mine" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -851,7 +838,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{iron_hammer_mine}'>Iron Hammer Mine</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Hall of Promise" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -861,7 +848,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{hall_of_promise}'>Hall of Promise</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ FEITON ------
 
@@ -878,7 +865,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{kalaja}'>Kalaja</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ PUNIKA ------
 
@@ -898,7 +885,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{tideshelf_path}'>Tideshelf Path</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Starsand Beach" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -908,7 +895,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{starsand_beach}'>Starsand Beach</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Tikatika Colony" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -918,7 +905,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{tikatika_colony}'>Tikatika Colony</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Secret Forest" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -928,7 +915,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{secret_forest}'>Secret Forest</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ SOUTH VERN ------
 
@@ -946,7 +933,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{candaria_territory}'>Candaria Territory</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "Bellion Ruins" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -956,7 +943,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{bellion_ruins}'>Bellion Ruins</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ ROWEN ------
 
@@ -974,7 +961,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{fang_river}'>Fang River</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
         elif "The Wolflands" in local_str:
             message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
@@ -984,7 +971,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{the_wolflands}'>The Wolflands</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
 
     # ------ EAST LUTERRA (BURT) (SERIA) ------
 
@@ -1005,7 +992,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
     #         message += f"<b>Mapa: <a href='{blackrose_chapel}'>Blackrose Chapel</a></b>\n\n"
     #         message += f"<b>O NPC irá embora em: {final_t}</b>"
     #         # Envia a mensagem
-    #         send_message(message, chatID, file_path)
+    #         send_message(message, chatID)
     #         processed_itens.add('Seria')
 
     #     elif 'Leyar Terrace' in local_str and 'Seria' not in processed_itens:
@@ -1017,7 +1004,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
     #         message += f"<b>Mapa: <a href='{leyar_terrace}'>Leyar Terrace</a></b>\n\n"
     #         message += f"<b>O NPC irá embora em: {final_t}</b>"
     #         # Envia a mensagem
-    #         send_message(message, chatID, file_path)
+    #         send_message(message, chatID)
     #         processed_itens.add('Seria')
 
     #     elif "Borea's Domain" in local_str and 'Seria' not in processed_itens:
@@ -1029,7 +1016,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
     #         message += f"<b>Mapa: <a href='{boreas_domain}'>Borea's Domain</a></b>\n\n"
     #         message += f"<b>O NPC irá embora em: {final_t}</b>"
     #         # Envia a mensagem
-    #         send_message(message, chatID, file_path)
+    #         send_message(message, chatID)
     #         processed_itens.add('Seria')
 
     #     elif "Croconys Seashore" in local_str and 'Seria' not in processed_itens:
@@ -1041,7 +1028,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
     #         message += f"<b>Mapa: <a href='{croconys_seashore}'>Croconys Seashore</a></b>\n\n"
     #         message += f"<b>O NPC irá embora em: {final_t}</b>"
     #         # Envia a mensagem
-    #         send_message(message, chatID, file_path)
+    #         send_message(message, chatID)
     #         processed_itens.add('Seria')
 
     # # ------ SHUSHIRE (SIAN)  ------
@@ -1064,7 +1051,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
     #         message += f"<b>Mapa: <a href='{frozen_sea}'>Frozen Sea</a></b>\n\n"
     #         message += f"<b>O NPC irá embora em: {final_t}</b>"
     #         # Envia a mensagem
-    #         send_message(message, chatID, file_path)
+    #         send_message(message, chatID)
     #         processed_itens.add('Sian')
 
     #     elif 'Bitterwind Hill' in local_str:
@@ -1076,7 +1063,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
     #         message += f"<b>Mapa: <a href='{bitterwind_hill}'>Bitterwind Hill</a></b>\n\n"
     #         message += f"<b>O NPC irá embora em: {final_t}</b>"
     #         # Envia a mensagem
-    #         send_message(message, chatID, file_path)
+    #         send_message(message, chatID)
     #         processed_itens.add('Sian')
 
     #     elif 'Iceblood Plateau' in local_str:
@@ -1088,7 +1075,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
     #         message += f"<b>Mapa: <a href='{iceblood_plateau}'>Iceblood Plateau</a></b>\n\n"
     #         message += f"<b>O NPC irá embora em: {final_t}</b>"
     #         # Envia a mensagem
-    #         send_message(message, chatID, file_path)
+    #         send_message(message, chatID)
     #         processed_itens.add('Sian')
 
     #     elif 'Lake Eternity' in local_str:
@@ -1100,7 +1087,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
     #         message += f"<b>Mapa: <a href='{lake_eternity}'>Lake Eternity</a></b>\n\n"
     #         message += f"<b>O NPC irá embora em: {final_t}</b>"
     #         # Envia a mensagem
-    #         send_message(message, chatID, file_path)
+    #         send_message(message, chatID)
     #         processed_itens.add('Sian')
 
     #     elif 'Icewing Heights' in local_str:
@@ -1112,7 +1099,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
     #         message += f"<b>Mapa: <a href='{icewing_heights}'>Icewing Heights</a></b>\n\n"
     #         message += f"<b>O NPC irá embora em: {final_t}</b>"
     #         # Envia a mensagem
-    #         send_message(message, chatID, file_path)
+    #         send_message(message, chatID)
     #         processed_itens.add('Sian')
 
     # ------ SHUSHIRE (MADNICK)  ------
@@ -1135,7 +1122,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{frozen_sea}'>Frozen Sea</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Madnick')
 
         elif 'Bitterwind Hill' in local_str:
@@ -1147,7 +1134,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{bitterwind_hill}'>Bitterwind Hill</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Madnick')
 
         elif 'Iceblood Plateau' in local_str:
@@ -1159,7 +1146,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{iceblood_plateau}'>Iceblood Plateau</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Madnick')
 
         elif 'Lake Eternity' in local_str:
@@ -1171,7 +1158,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{lake_eternity}'>Lake Eternity</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Madnick')
 
         elif 'Icewing Heights' in local_str:
@@ -1183,7 +1170,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{icewing_heights}'>Icewing Heights</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Madnick')
 
     # ------ TORTOYK (MOKAMOKA) ------
@@ -1205,7 +1192,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{seaswept_woods}'>Seaswept Woods</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Mokamoka')
 
         elif 'Sweetwater Forest' in local_str:
@@ -1217,7 +1204,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{sweetwater_forest}'>Sweetwater Forest</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Mokamoka')
 
         elif 'Skyreach Steppe' in local_str:
@@ -1229,7 +1216,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{skyreach_steppe}'>Skyreach Steppe</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Mokamoka')
 
         elif 'Forest of Giants' in local_str:
@@ -1241,7 +1228,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID, file_pa
             message += f"<b>Mapa: <a href='{forest_of_giants}'>Forest of Giants</a></b>\n\n"
             message += f"<b>O NPC irá embora em: {final_t}</b>"
             # Envia a mensagem
-            send_message(message, chatID, file_path)
+            send_message(message, chatID)
             processed_itens.add('Mokamoka')
 
     now = datetime.datetime.now()
