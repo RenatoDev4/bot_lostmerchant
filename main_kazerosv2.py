@@ -14,173 +14,146 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
-
-# Class to scrape the website
-class WebsiteScraper:
-    def __init__(self, website_url):
-        self.website_url = website_url
-        self.driver = None
-
-    def configure_chrome_options(self):
-        chrome_options = Options()
-        chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--headless')
-        chrome_options.add_argument('--disable-dev-shm-usage')
-        chrome_options.binary_location = "/usr/bin/google-chrome"
-        return chrome_options
-
-    def scrape_website(self):
-        self.launch_driver()
-        self.navigate_to_website()
-        self.select_server_region()
-        self.select_server()
-        html_content = self.get_html_content()
-        time.sleep(3)
-        self.close_driver()
-        return html_content
-
-    def launch_driver(self):
-        chrome_options = self.configure_chrome_options()
-        self.driver = webdriver.Chrome(options=chrome_options)
-
-    def navigate_to_website(self):
-        self.driver.get(self.website_url)  # type:ignore
-
-    def select_server_region(self):
-        dropdown_server_region = WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.ID, "severRegion")))
-        select1 = Select(dropdown_server_region)
-        select1.select_by_visible_text("South America")
-
-    def select_server(self):
-        dropdown2 = self.driver.find_element(By.ID, "server")  # type:ignore
-        select2 = Select(dropdown2)
-        select2.select_by_visible_text("Kazeros")
-
-    def get_html_content(self):
-        html_content = self.driver.page_source  # type:ignore
-        return html_content
-
-    def close_driver(self):
-        self.driver.close()  # type:ignore
+# URL
+chrome_options = Options()
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.binary_location = "/usr/bin/google-chrome"
+driver = webdriver.Chrome(options=chrome_options)
+driver.get("https://lostmerchants.com/")
 
 
-if __name__ == "__main__":
-    WEBSITE_URL = "https://lostmerchants.com/"
-    scraper = WebsiteScraper(WEBSITE_URL)
-    html_content = scraper.scrape_website()
+# Localiza o menu usando seu ID
+time.sleep(5)
 
-    headers = {
-        'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
-        AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
-    }
+dropdown_server_region = WebDriverWait(driver, 30).until(
+    EC.presence_of_element_located((By.ID, "severRegion")))
 
-    # Begin the scraping process
+select1 = Select(dropdown_server_region)
+select1.select_by_visible_text("South America")
 
-    soup = BeautifulSoup(html_content, "html.parser")
-    dic_merchant = defaultdict(list)
+dropdown2 = driver.find_element(By.ID, "server")
 
-    # Get the time remaining for the merchants
-    data_tempo = soup.find_all('div', class_='merchants__content')
+select2 = Select(dropdown2)
+select2.select_by_visible_text("Kazeros")
 
-    for time_ in data_tempo:
-        tempo = time_.find('span', class_='merchants__timer')
-        if tempo is not None:
-            for final_tempo in tempo:
-                final_t = final_tempo.text
-                final_t = final_t.replace("Expires in ", "")
-                dic_merchant['tempo'].append(final_t)
-
-    # Get the itens and the local of the merchants
-    data = soup.find_all('div', class_='merchant merchant-grid__item')
-
-    for merchant in data:
-        local = merchant.find_all('div', class_='card-frame__title')
-        for title in local:
-            final_local = title.text
-            dic_merchant['local'].append(final_local)
-
-        itens = merchant.find_all('div', class_='stock__item')
-        for w_itens in itens:
-            final_itens = w_itens.text
-            dic_merchant['itens'].append(final_itens)
-
-    local_str = ' '.join(
-        [s for s in dic_merchant['local'] if isinstance(s, str)])
-    itens_str = ' '.join(
-        [s for s in dic_merchant['itens'] if isinstance(s, str)])
-
-# Server
-server = "Kazeros / SA"
+time.sleep(10)
 
 
-# Function to send the message to the telegram group
+# URL PROCURA PRODUTO
+html_content = driver.page_source
 
-def send_message(message):
+# INFORMA QUE É UM NAVEGADOR
+headers = {
+    'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+    AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"}
+
+# Servidor
+servidor = "Kazeros / SA"
+
+# Salva o item de Luterra para não enviar em duplicidade
+processed_itens = set()
+
+
+# Função enviar mensagem do BOT
+def send_message(mensagem):
+
     apiToken = '5805754523:AAFIthNp4MtRuN3bbzpyD2gYqFOCFHxQDWg'
     chatID = '-1001538174798'
     bot = telebot.TeleBot(apiToken)
+    # Read the list of messages already sent from a file
+    with open('/home/renato/bot_lostmerchants/sent_messages_kazeros.txt', 'r') as f:
+        sent_messages = f.read().splitlines()
 
-    # Define the path to the file where the sent messages will be saved
-    file_path = os.path.join(
-        '/home', 'Projetos_Python', 'bot_lostmerchants', 'sent_messages_kazeros.txt')  # noqa
+    # Check if the new message is in the list of sent messages
+    if message not in sent_messages:
+        # Send the message
+        bot.send_message(chat_id=chatID, text=message, parse_mode='HTML')
 
-    try:
-        # Verify if the file exists
-        if os.path.exists(file_path):
-            with open(file_path, 'r') as f:
-                sent_messages = f.read().splitlines()
-        else:
-            sent_messages = []
+        # If the message is sent successfully, save it to the file
+        with open('/home/renato/bot_lostmerchants/sent_messages_kazeros.txt', 'a') as f:
+            f.write(message + '\n')
+    else:
+        pass
 
-        # Verify if the message was already sent
-        if message not in sent_messages:
-            # Envie a mensagem
-            bot.send_message(chat_id=chatID, text=message, parse_mode='HTML')
+# COMEÇA O WEB SCRAPING
 
-            # If the message was sent, save it in the file
-            with open(file_path, 'a') as f:
-                f.write(message + '\n')
-        else:
-            print('Mensagem já enviada anteriormente:', message)
 
-    except Exception as e:
-        print('Erro ao enviar a mensagem:', e)
+soup = BeautifulSoup(html_content, "html.parser")
+dic_merchant = {'local': [], 'itens': [], 'tempo': []}
 
+#  PEGA O TEMPO QUE FALTA PARA ACABAR
+data_tempo = soup.find_all('div', class_='merchants__content')
+
+for time_ in data_tempo:
+    tempo = time_.find('span', class_='merchants__timer')
+    if tempo is not None:
+        for final_tempo in tempo:
+            final_t = final_tempo.text
+            final_t = final_t.replace("Expires in ", "")
+            dic_merchant['tempo'].append(final_t)
+
+# PEGA OS LOCAIS E ITENS DO SITE
+data = soup.find_all('div', class_='merchant merchant-grid__item')
+for quote in soup.find_all('span', class_="item__tooltip"):
+    quote.decompose()
+
+for merchant in data:
+    local = merchant.find_all('div', class_='card-frame__title')
+    for title in local:
+        final_local = title.text
+        dic_merchant['local'].append(final_local)
+
+    itens = merchant.find_all('div', class_='stock__item')
+    for w_itens in itens:
+        final_itens = w_itens.text
+        dic_merchant['itens'].append(final_itens)
+
+
+local_str = ' '.join([s for s in dic_merchant['local'] if isinstance(s, str)])
+itens_str = ' '.join([s for s in dic_merchant['itens'] if isinstance(s, str)])
 
 # All the maps where the merchants can be found
-locals_loa = ["Loghill", "Ankumo Mountain", "Rethramis Border", "Rethramis",
-              "Saland Hill", "Ozhorn Hill", 'Yudia',
-              'Mount Zagoras', 'Lakebar', 'Medrick Monastery', 'Bilbrin Forest', 'Battlebound Plains', 'West Luterra',  # noqa
-              'Dyorika Plain', 'Sunbright Hill', 'Flowering Orchard', 'East Luterra',  # noqa
-              'Blackrose Chapel', 'Leyar Terrace', "Borea's Domain", 'Croconys Seashore',  # noqa
-              'Seaswept Woods', 'Sweetwater Forest', 'Skyreach Steppe', 'Forest of Giants', 'Tortoyk',  # noqa
-              'Delphi Township', 'Rattan Hill', 'Melody Forest', 'Twilight Mists', 'Prisma Valley', 'Anikka',  # noqa
-              'Arid Path', 'Scraplands', 'Nebelhorn', 'Windbringer Hills', 'Totrich', 'Riza Falls', 'Arthetine',  # noqa
-              'Port Krona', 'Parna Forest', 'Fesnar Highland', 'Vernese Forest', 'Balankar Mountains', 'North Vern',  # noqa
-              'Frozen Sea', 'Bitterwind Hill', 'Iceblood Plateau', 'Lake Eternity', 'Icewing Heights', 'Shushire',  # noqa
-              'Lake Shiverwave', 'Glass Lotus Lake', 'Breezesome Brae', 'Xeneela Ruins', "Elzowin's Shade", 'Rohendel',  # noqa
-              "Yorn's Cradle", 'Unfinished Garden', 'Black Anvil Mine', 'Iron Hammer Mine', 'Hall of Promise', 'Yorn',  # noqa
-              'Kalaja', 'Feiton',
-              'Tideshelf Path', 'Starsand Beach', 'Tikatika Colony', 'Secret Forest', 'Punika',  # noqa
-              'Candaria Territory', 'Bellion Ruins', 'South Vern',
-              'Fang River', 'The Wolflands', 'Rowen']
+locals_loa = ["Loghill", "Ankumo Mountain", "Rethramis Border", "Rethramis",  # noqa
+            "Saland Hill", "Ozhorn Hill", 'Yudia',  # noqa
+            'Mount Zagoras', 'Lakebar', 'Medrick Monastery', 'Bilbrin Forest', 'Battlebound Plains', 'West Luterra',  # noqa
+            'Dyorika Plain', 'Sunbright Hill', 'Flowering Orchard', 'East Luterra',  # noqa
+            'Blackrose Chapel', 'Leyar Terrace', "Borea's Domain", 'Croconys Seashore',  # noqa
+            'Seaswept Woods', 'Sweetwater Forest', 'Skyreach Steppe', 'Forest of Giants', 'Tortoyk',  # noqa
+            'Delphi Township', 'Rattan Hill', 'Melody Forest', 'Twilight Mists', 'Prisma Valley', 'Anikka',  # noqa
+            'Arid Path', 'Scraplands', 'Nebelhorn', 'Windbringer Hills', 'Totrich', 'Riza Falls', 'Arthetine',  # noqa
+            'Port Krona', 'Parna Forest', 'Fesnar Highland', 'Vernese Forest', 'Balankar Mountains', 'North Vern',  # noqa
+            'Frozen Sea', 'Bitterwind Hill', 'Iceblood Plateau', 'Lake Eternity', 'Icewing Heights', 'Shushire',  # noqa
+            'Lake Shiverwave', 'Glass Lotus Lake', 'Breezesome Brae', 'Xeneela Ruins', "Elzowin's Shade", 'Rohendel',  # noqa
+            "Yorn's Cradle", 'Unfinished Garden', 'Black Anvil Mine', 'Iron Hammer Mine', 'Hall of Promise', 'Yorn',  # noqa
+            'Kalaja', 'Feiton',  # noqa
+            'Tideshelf Path', 'Starsand Beach', 'Tikatika Colony', 'Secret Forest', 'Punika',  # noqa
+            'Candaria Territory', 'Bellion Ruins', 'South Vern',  # noqa
+            'Fang River', 'The Wolflands', 'Rowen']  # noqa
 
 # All the itens that can be found in the merchants
 
-itens_loa = ["Surprise Chest", "Sky Reflection Oil", "Chain War Chronicles",
-             "Shy Wind Flower Pollen", "Angler's Fishing Pole", "Wei",
-             "Fine Gramophone", "Vern's Founding Coin", "Sirius's Holy Book",
-             "Sylvain Queens' Blessing", "Fargar's Beer", "Red Moon Tears",
-             "Oreha Viewing Stone", "Necromancer's Records", "Warm Earmuffs",
-             "Seria", "Sian", "Madnick", "Mokamoka"]
-
+itens_loa = ["Surprise Chest", "Sky Reflection Oil", "Chain War Chronicles",  # noqa
+            "Shy Wind Flower Pollen", "Angler's Fishing Pole", "Wei",  # noqa
+            "Fine Gramophone", "Vern's Founding Coin", "Sirius's Holy Book",  # noqa
+            "Sylvain Queens' Blessing", "Fargar's Beer", "Red Moon Tears",  # noqa
+            "Oreha Viewing Stone", "Necromancer's Records", "Warm Earmuffs",  # noqa
+            "Seria", "Sian", "Madnick", "Mokamoka", "Bergstrom"]  # noqa
 
 # Use regex to find the matches
-local_matches = [re.search(word, local_str)  # type:ignore
-                 for word in locals_loa if word in local_str]  # type:ignore
-itens_matches = [re.search(word, itens_str)  # type:ignore
-                 for word in itens_loa if word in itens_str]  # type:ignore
+local_matches = [re.search(word, local_str) for word in locals_loa]
+itens_matches = [re.search(word, itens_str) for word in itens_loa]
+
+print(f'Localização:{local_matches}')
+print()
+print(f'Itens:{itens_matches}')
+
+# print(f'Localização:{local_matches}')
+# print()
+
+# Server
+server = "Kazeros / SA"
 
 
 # Define a function to create the message string for a legendary report
@@ -283,7 +256,7 @@ rapport_and_locations = [
           'map_url': 'https://assets.maxroll.gg/wordpress/traveling_merchant_mac_mirror_valley.jpg'}  # noqa
      ]},
 
-    {'item_name': "Fine Gramophone",
+    {'item_name': "Bergstrom",
      'locations': [
          {'location': 'Arthetine / Arid Path',
           'map_url': 'https://assets.maxroll.gg/wordpress/wandering_merchant_nox_arid_path.jpg'},  # noqa
@@ -395,15 +368,17 @@ rapport_and_locations = [
 
 # Find rapport item and location, if find both, send message to telegram group # noqa
 for item_dict in rapport_and_locations:
-    item = item_dict['item_name']  # type:ignore
-    locations = item_dict['locations']  # type:ignore
-    if any(match is not None and match.group() == item for match in itens_matches):  # type:ignore # noqa
-        for loc in locations:
-            if loc['location'] in local_str:  # type:ignore
-                message = create_legendary_message(
-                    server, loc['location'], item, loc['map_url'], final_t)  # type:ignore # noqa
-                send_message(message)
-                break  # Stop searching for this item if it was already found and reported # noqa
+    item = item_dict['item_name']
+    locations = item_dict['locations']
+    for loc in locations:
+        if any((match is not None and match.group() == item) for match in itens_matches if loc['location'] in local_str):  # type:ignore # noqa
+            print('até aqui foi')
+            message = create_legendary_message(
+                server, loc['location'], item, loc['map_url'], final_t)  # type:ignore # noqa
+            print('era pra enviar a mensagem')
+            send_message(message)
+            print('mensagem enviada')
+            break  # Stop searching for this item if it was already found and reported # noqa
 
 
 # Print message to console to check if everything is working
