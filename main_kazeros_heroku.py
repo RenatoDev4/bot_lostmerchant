@@ -40,8 +40,6 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
     select2 = Select(dropdown2)
     select2.select_by_visible_text(dropdown2_text)
 
-    time.sleep(10)
-
     # URL PROCURA PRODUTO
     html_content = driver.page_source
 
@@ -143,32 +141,32 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
 
     # Envia a mensagem dependendo de qual é o mapa // Rethramis
         if "Loghill" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local: </b> Rethramis / Log Hill\n"
             message += "<b>Item:</b> Surprise Chest\n"
-            message += f"<b>Mapa: <a href='{log_hill_url}'>Log Hill</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{log_hill_url}'>Log Hill</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Ankumo Mountain" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local: </b> Rethramis / Ankumo Mountain\n"
             message += "<b>Item:</b> Surprise Chest\n"
-            message += f"<b>Mapa: <a href='{ankumo_mountain_url}'>Ankumo Mountain</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{ankumo_mountain_url}'>Ankumo Mountain</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Rethramis Border" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Rethramis / Rethramis Border\n"
             message += "<b>Item:</b> Surprise Chest\n"
-            message += f"<b>Mapa: <a href='{rethramis_border}'>Rethramis Border</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{rethramis_border}'>Rethramis Border</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -181,22 +179,22 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         ozhorn_hill_url = 'https://assets.maxroll.gg/wordpress/yudia_wandering_merchant_lucas_ozhorn_hill.jpg'
 
         if 'Saland Hill' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Yudia / Saland Hill\n"
             message += "<b>Item:</b> Sky Reflection Oil\n"
-            message += f"<b>Mapa: <a href='{saland_hill_url}'>Saland Hill</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{saland_hill_url}'>Saland Hill</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Ozhorn Hill' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Yudia / Ozhorn Hill\n"
             message += "<b>Item:</b> Sky Reflection Oil\n"
-            message += f"<b>Mapa: <a href='{ozhorn_hill_url}'>Ozhorn Hill</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{ozhorn_hill_url}'>Ozhorn Hill</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -212,56 +210,56 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         battlebound_plains = 'https://assets.maxroll.gg/wordpress/malone_battlebound_plains.jpg'
 
         if 'Mount Zagoras' in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> West Luterra / Mount Zagoras\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{mount_zagoras_url}'>Mount Zagoras</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{mount_zagoras_url}'>Mount Zagoras</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Lakebar' in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> West Luterra / Lakebar\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{lakebar_url}'>Lakebar</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{lakebar_url}'>Lakebar</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Medrick Monastery' in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> West Luterra / Medrick Monastery\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{medrick_monastery}'>Medrick Monastery</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{medrick_monastery}'>Medrick Monastery</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Bilbrin Forest' in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> West Luterra / Bilbrin Forest\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{bilbrin_forest}'>Bilbrin Forest</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{bilbrin_forest}'>Bilbrin Forest</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Battlebound Plains' in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> West Luterra / Battlebound Plains\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{battlebound_plains}'>Battlebound Plains</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{battlebound_plains}'>Battlebound Plains</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
@@ -276,34 +274,34 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         flowering_orchard = 'https://assets.maxroll.gg/wordpress/morris_flowering_orchard_10.jpg'
 
         if 'Dyorika Plain' in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> East Luterra / Dyorika Plain\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{dyorika_plains}'>Dyorika Plain</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{dyorika_plains}'>Dyorika Plain</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Sunbright Hill' in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> East Luterra / Sunbright Hill\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{sunbright_hill}'>Sunbright Hill</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{sunbright_hill}'>Sunbright Hill</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Flowering Orchard' in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> East Luterra / Flowering Orchard\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{flowering_orchard}'>Flowering Orchard</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{flowering_orchard}'>Flowering Orchard</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
@@ -319,45 +317,45 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         croconys_seashore = 'https://assets.maxroll.gg/wordpress/burt_croconys_seashore_v4.jpg'
 
         if 'Blackrose Chapel' in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> East Luterra / Blackrose Chapel\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{blackrose_chapel}'>Blackrose Chapel</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{blackrose_chapel}'>Blackrose Chapel</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif 'Leyar Terrace' in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> East Luterra / Leyar Terrace\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{leyar_terrace}'>Leyar Terrace</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{leyar_terrace}'>Leyar Terrace</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif "Borea's Domain" in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> East Luterra / Borea's Domain\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{boreas_domain}'>Borea's Domain</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{boreas_domain}'>Borea's Domain</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
         elif "Croconys Seashore" in local_str and 'Chain War Chronicles' not in processed_itens:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> East Luterra / Croconys Seashore\n"
             message += "<b>Item</b>: Chain War Chronicles\n"
-            message += f"<b>Mapa: <a href='{croconys_seashore}'>Croconys Seashore</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{croconys_seashore}'>Croconys Seashore</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
@@ -373,42 +371,42 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         forest_of_giants = 'https://assets.maxroll.gg/wordpress/wandering_merchant_oliver_forest_of_giants.jpg'
 
         if 'Seaswept Woods' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Tortoyk / Seaswept Woods\n"
             message += "<b>Item</b>: Shy Wind Flower Pollen\n"
-            message += f"<b>Mapa: <a href='{seaswept_woods}'>Seaswept Woods</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{seaswept_woods}'>Seaswept Woods</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Sweetwater Forest' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Tortoyk / Sweetwater Forest\n"
             message += "<b>Item</b>: Shy Wind Flower Pollen\n"
-            message += f"<b>Mapa: <a href='{sweetwater_forest}'>Sweetwater Forest</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{sweetwater_forest}'>Sweetwater Forest</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Skyreach Steppe' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Tortoyk / Skyreach Steppe\n"
             message += "<b>Item</b>: Shy Wind Flower Pollen\n"
-            message += f"<b>Mapa: <a href='{skyreach_steppe}'>Skyreach Steppe</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{skyreach_steppe}'>Skyreach Steppe</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Forest of Giants' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Tortoyk / Forest of Giants\n"
             message += "<b>Item</b>: Shy Wind Flower Pollen\n"
-            message += f"<b>Mapa: <a href='{forest_of_giants}'>Forest of Giants</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{forest_of_giants}'>Forest of Giants</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -424,52 +422,52 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         prisma_valley = 'https://assets.maxroll.gg/wordpress/traveling_merchant_mac_mirror_valley.jpg'
 
         if 'Delphi Township' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Delphi Township\n"
             message += "<b>Item</b>: Angler's Fishing Pole\n"
-            message += f"<b>Mapa: <a href='{delphi_township}'>Delphi Township</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{delphi_township}'>Delphi Township</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Rattan Hill' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Rattan Hill\n"
             message += "<b>Item</b>: Angler's Fishing Pole\n"
-            message += f"<b>Mapa: <a href='{rattan_hill}'>Rattan Hill</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{rattan_hill}'>Rattan Hill</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Melody Forest' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Melody Forest\n"
             message += "<b>Item</b>: Angler's Fishing Pole\n"
-            message += f"<b>Mapa: <a href='{melody_forest}'>Melody Forest</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{melody_forest}'>Melody Forest</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Twilight Mists' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Twilight Mists\n"
             message += "<b>Item</b>: Angler's Fishing Pole\n"
-            message += f"<b>Mapa: <a href='{twilight_mists}'>Twilight Mists</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{twilight_mists}'>Twilight Mists</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Prisma Valley' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Prisma Valley\n"
             message += "<b>Item</b>: Angler's Fishing Pole\n"
-            message += f"<b>Mapa: <a href='{prisma_valley}'>Prisma Valley</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{prisma_valley}'>Prisma Valley</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -486,51 +484,51 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
 
         if 'Delphi Township' in local_str:
             message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Delphi Township\n"
             message += "<b>Item</b>: Wei\n"
-            message += f"<b>Mapa: <a href='{delphi_township}'>Delphi Township</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{delphi_township}'>Delphi Township</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Rattan Hill' in local_str:
             message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Rattan Hill\n"
             message += "<b>Item</b>: Wei\n"
-            message += f"<b>Mapa: <a href='{rattan_hill}'>Rattan Hill</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{rattan_hill}'>Rattan Hill</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Melody Forest' in local_str:
             message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Melody Forest\n"
             message += "<b>Item</b>: Wei\n"
-            message += f"<b>Mapa: <a href='{melody_forest}'>Melody Forest</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{melody_forest}'>Melody Forest</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Twilight Mists' in local_str:
             message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Twilight Mists\n"
             message += "<b>Item</b>: Wei\n"
-            message += f"<b>Mapa: <a href='{twilight_mists}'>Twilight Mists</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{twilight_mists}'>Twilight Mists</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Prisma Valley' in local_str:
             message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Prisma Valley\n"
             message += "<b>Item</b>: Wei\n"
-            message += f"<b>Mapa: <a href='{prisma_valley}'>Prisma Valley</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{prisma_valley}'>Prisma Valley</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -547,62 +545,62 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         riza_falls = 'https://assets.maxroll.gg/wordpress/wandering_merchant_nox_riza_falls.jpg'
 
         if 'Arid Path' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Arthetine / Arid Path\n"
             message += "<b>Item</b>: Fine Gramophone\n"
-            message += f"<b>Mapa: <a href='{arid_path}'>Arid Path</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{arid_path}'>Arid Path</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Scraplands' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Arthetine / Scraplands\n"
             message += "<b>Item</b>: Fine Gramophone\n"
-            message += f"<b>Mapa: <a href='{scraplands}'>Scraplands</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{scraplands}'>Scraplands</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Nebelhorn' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Arthetine / Nebelhorn\n"
             message += "<b>Item</b>: Fine Gramophone\n"
-            message += f"<b>Mapa: <a href='{nebelhorn}'>Nebelhorn</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{nebelhorn}'>Nebelhorn</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Windbringer Hills' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Arthetine / Windbringer Hills\n"
             message += "<b>Item</b>: Fine Gramophone\n"
-            message += f"<b>Mapa: <a href='{windbringer_hills}'>Windbringer Hills</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{windbringer_hills}'>Windbringer Hills</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Totrich' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Arthetine / Totrich\n"
             message += "<b>Item</b>: Fine Gramophone\n"
-            message += f"<b>Mapa: <a href='{totrich}'>Totrich</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{totrich}'>Totrich</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Riza Falls' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Arthetine / Riza Falls\n"
             message += "<b>Item</b>: Fine Gramophone\n"
-            message += f"<b>Mapa: <a href='{riza_falls}'>Riza Falls</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{riza_falls}'>Riza Falls</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -618,52 +616,52 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         balankar_mountains = 'https://assets.maxroll.gg/wordpress/wandering_merchant_peter_balankar_mountains.jpg'
 
         if 'Port Krona' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> North Vern / Port Krona\n"
             message += "<b>Item</b>: Vern's Founding Coin\n"
-            message += f"<b>Mapa: <a href='{port_krona}'>Port Krona</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{port_krona}'>Port Krona</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Parna Forest' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> North Vern / Parna Forest\n"
             message += "<b>Item</b>: Vern's Founding Coin\n"
-            message += f"<b>Mapa: <a href='{parna_forest}'>Parna Forest</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{parna_forest}'>Parna Forest</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Fesnar Highland' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> North Vern / Fesnar Highland\n"
             message += "<b>Item</b>: Vern's Founding Coin\n"
-            message += f"<b>Mapa: <a href='{fesnar_highland}'>Fesnar Highland</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{fesnar_highland}'>Fesnar Highland</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Vernese Forest' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> North Vern / Vernese Forest\n"
             message += "<b>Item</b>: Vern's Founding Coin\n"
-            message += f"<b>Mapa: <a href='{vernese_forest}'>Vernese Forest</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{vernese_forest}'>Vernese Forest</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Balankar Mountains' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> North Vern / Balankar Mountains\n"
             message += "<b>Item</b>: Vern's Founding Coin\n"
-            message += f"<b>Mapa: <a href='{balankar_mountains}'>Balankar Mountains</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{balankar_mountains}'>Balankar Mountains</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -679,52 +677,52 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         icewing_heights = 'https://assets.maxroll.gg/wordpress/wandering_merchant_jeffrey_icewing_heights_v2.jpg'
 
         if 'Frozen Sea' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Shushire / Frozen Sea\n"
             message += "<b>Item</b>: Sirius's Holy Book\n"
-            message += f"<b>Mapa: <a href='{frozen_sea}'>Frozen Sea</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{frozen_sea}'>Frozen Sea</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Bitterwind Hill' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Shushire / Bitterwind Hill\n"
             message += "<b>Item</b>: Sirius's Holy Book\n"
-            message += f"<b>Mapa: <a href='{bitterwind_hill}'>Bitterwind Hill</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{bitterwind_hill}'>Bitterwind Hill</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Iceblood Plateau' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Shushire / Iceblood Plateau\n"
             message += "<b>Item</b>: Sirius's Holy Book\n"
-            message += f"<b>Mapa: <a href='{iceblood_plateau}'>Iceblood Plateau</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{iceblood_plateau}'>Iceblood Plateau</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Lake Eternity' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Shushire / Lake Eternity\n"
             message += "<b>Item</b>: Sirius's Holy Book\n"
-            message += f"<b>Mapa: <a href='{lake_eternity}'>Lake Eternity</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{lake_eternity}'>Lake Eternity</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Icewing Heights' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Shushire / Icewing Heights\n"
             message += "<b>Item</b>: Sirius's Holy Book\n"
-            message += f"<b>Mapa: <a href='{icewing_heights}'>Icewing Heights</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{icewing_heights}'>Icewing Heights</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -740,52 +738,52 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         elzowins_shade = 'https://assets.maxroll.gg/wordpress/aricer_elzowins_shade_v4.jpg'
 
         if 'Lake Shiverwave' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Rohendel / Lake Shiverwave\n"
             message += "<b>Item</b>: Sylvain Queens' Blessing\n"
-            message += f"<b>Mapa: <a href='{lake_shiverwave}'>Lake Shiverwave</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{lake_shiverwave}'>Lake Shiverwave</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Glass Lotus Lake' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Rohendel / Glass Lotus Lake\n"
             message += "<b>Item</b>: Sylvain Queens' Blessing\n"
-            message += f"<b>Mapa: <a href='{glass_lotus_lake}'>Glass Lotus Lake</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{glass_lotus_lake}'>Glass Lotus Lake</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Breezesome Brae' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Rohendel / Breezesome Brae\n"
             message += "<b>Item</b>: Sylvain Queens' Blessing\n"
-            message += f"<b>Mapa: <a href='{breezesome_brae}'>Breezesome Brae</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{breezesome_brae}'>Breezesome Brae</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif 'Xeneela Ruins' in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Rohendel / Xeneela Ruins\n"
             message += "<b>Item</b>: Sylvain Queens' Blessing\n"
-            message += f"<b>Mapa: <a href='{xeneela_ruins}'>Xeneela Ruins</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{xeneela_ruins}'>Xeneela Ruins</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Elzowin's Shade" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Rohendel / Elzowin's Shade\n"
             message += "<b>Item</b>: Sylvain Queens' Blessing\n"
-            message += f"<b>Mapa: <a href='{elzowins_shade}'>Elzowin's Shade</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{elzowins_shade}'>Elzowin's Shade</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -801,52 +799,52 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         hall_of_promise = 'https://assets.maxroll.gg/wordpress/laitir_hall_of_promise.jpg'
 
         if "Yorn's Cradle" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Yorn / Yorn's Cradle\n"
             message += "<b>Item</b>: Fargar's Beer\n"
-            message += f"<b>Mapa: <a href='{yorns_cradle}'>Yorn's Cradle</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{yorns_cradle}'>Yorn's Cradle</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Unfinished Garden" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Yorn / Unfinished Garden\n"
             message += "<b>Item</b>: Fargar's Beer\n"
-            message += f"<b>Mapa: <a href='{unfinished_garden}'>Unfinished Garden</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{unfinished_garden}'>Unfinished Garden</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Black Anvil Mine" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Yorn / Black Anvil Mine\n"
             message += "<b>Item</b>: Fargar's Beer\n"
-            message += f"<b>Mapa: <a href='{black_anvil_mine}'>Black Anvil Mine</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{black_anvil_mine}'>Black Anvil Mine</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Iron Hammer Mine" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Yorn / Iron Hammer Mine\n"
             message += "<b>Item</b>: Fargar's Beer\n"
-            message += f"<b>Mapa: <a href='{iron_hammer_mine}'>Iron Hammer Mine</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{iron_hammer_mine}'>Iron Hammer Mine</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Hall of Promise" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Yorn / Hall of Promise\n"
             message += "<b>Item</b>: Fargar's Beer\n"
-            message += f"<b>Mapa: <a href='{hall_of_promise}'>Hall of Promise</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{hall_of_promise}'>Hall of Promise</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -858,12 +856,12 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         kalaja = 'https://assets.maxroll.gg/wordpress/feiton_wandering_merchant_v1.jpg'
 
         if "Kalaja" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Feiton / Kalaja\n"
             message += "<b>Item</b>: Red Moon Tears\n"
-            message += f"<b>Mapa: <a href='{kalaja}'>Kalaja</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{kalaja}'>Kalaja</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -878,42 +876,42 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         secret_forest = 'https://assets.maxroll.gg/wordpress/punika_wandering_merchant_4_v1.jpg'
 
         if "Tideshelf Path" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Punika / Tideshelf Path\n"
             message += "<b>Item</b>: Oreha Viewing Stone\n"
-            message += f"<b>Mapa: <a href='{tideshelf_path}'>Tideshelf Path</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{tideshelf_path}'>Tideshelf Path</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Starsand Beach" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Punika / Starsand Beach\n"
             message += "<b>Item</b>: Oreha Viewing Stone\n"
-            message += f"<b>Mapa: <a href='{starsand_beach}'>Starsand Beach</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{starsand_beach}'>Starsand Beach</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Tikatika Colony" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Punika / Tikatika Colony\n"
             message += "<b>Item</b>: Oreha Viewing Stone\n"
-            message += f"<b>Mapa: <a href='{tikatika_colony}'>Tikatika Colony</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{tikatika_colony}'>Tikatika Colony</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Secret Forest" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Punika / Secret Forest\n"
             message += "<b>Item</b>: Oreha Viewing Stone\n"
-            message += f"<b>Mapa: <a href='{secret_forest}'>Secret Forest</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{secret_forest}'>Secret Forest</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -926,22 +924,22 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         bellion_ruins = 'https://assets.maxroll.gg/wordpress/wandering_merchant_evan_bellion_ruins.jpg'
 
         if "Candaria Territory" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> South Vern / Candaria Territory\n"
             message += "<b>Item</b>: Necromancer's Records\n"
-            message += f"<b>Mapa: <a href='{candaria_territory}'>Candaria Territory</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{candaria_territory}'>Candaria Territory</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "Bellion Ruins" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> South Vern / Bellion Ruins\n"
             message += "<b>Item</b>: Necromancer's Records\n"
-            message += f"<b>Mapa: <a href='{bellion_ruins}'>Bellion Ruins</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{bellion_ruins}'>Bellion Ruins</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -954,22 +952,22 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         the_wolflands = 'https://lostmerchants.com/images/zones/The%20Wolflands.jpg'
 
         if "Fang River" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Rowen / Fang River\n"
             message += "<b>Item</b>: Warm Earmuffs\n"
-            message += f"<b>Mapa: <a href='{fang_river}'>Fang River</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{fang_river}'>Fang River</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
         elif "The Wolflands" in local_str:
-            message = "<b>RAPPORT LENDARIO ENCONTRADO!</b>\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>LEGENDARY RAPPORT FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Rowen / The Wolflands\n"
             message += "<b>Item</b>: Warm Earmuffs\n"
-            message += f"<b>Mapa: <a href='{the_wolflands}'>The Wolflands</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{the_wolflands}'>The Wolflands</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
 
@@ -984,49 +982,49 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
     #     croconys_seashore = 'https://assets.maxroll.gg/wordpress/burt_croconys_seashore_v4.jpg'
 
     #     if 'Blackrose Chapel' in local_str and 'Seria' not in processed_itens:
-    #         message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-    #         message += "<b>Set de cartas:</b> Lost Wind Clif\n\n"
-    #         message += f"<b>Servidor:</b> {servidor}\n"
+    #         message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+    #         message += "<b>Set of cards:</b> Lost Wind Clif\n\n"
+    #         message += f"<b>Server:</b> {servidor}\n"
     #         message += "<b>Local:</b> East Luterra / Blackrose Chapel\n"
     #         message += "<b>Item</b>: Seria\n"
-    #         message += f"<b>Mapa: <a href='{blackrose_chapel}'>Blackrose Chapel</a></b>\n\n"
-    #         message += f"<b>O NPC irá embora em: {final_t}</b>"
+    #         message += f"<b>Map: <a href='{blackrose_chapel}'>Blackrose Chapel</a></b>\n\n"
+    #         message += f"<b>The NPC will leave in: {final_t}</b>"
     #         # Envia a mensagem
     #         send_message(message, chatID)
     #         processed_itens.add('Seria')
 
     #     elif 'Leyar Terrace' in local_str and 'Seria' not in processed_itens:
-    #         message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-    #         message += "<b>Set de cartas:</b> Lost Wind Clif\n\n"
-    #         message += f"<b>Servidor:</b> {servidor}\n"
+    #         message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+    #         message += "<b>Set of cards:</b> Lost Wind Clif\n\n"
+    #         message += f"<b>Server:</b> {servidor}\n"
     #         message += "<b>Local:</b> East Luterra / Leyar Terrace\n"
     #         message += "<b>Item</b>: Seria\n"
-    #         message += f"<b>Mapa: <a href='{leyar_terrace}'>Leyar Terrace</a></b>\n\n"
-    #         message += f"<b>O NPC irá embora em: {final_t}</b>"
+    #         message += f"<b>Map: <a href='{leyar_terrace}'>Leyar Terrace</a></b>\n\n"
+    #         message += f"<b>The NPC will leave in: {final_t}</b>"
     #         # Envia a mensagem
     #         send_message(message, chatID)
     #         processed_itens.add('Seria')
 
     #     elif "Borea's Domain" in local_str and 'Seria' not in processed_itens:
-    #         message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-    #         message += "<b>Set de cartas:</b> Lost Wind Clif\n\n"
-    #         message += f"<b>Servidor:</b> {servidor}\n"
+    #         message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+    #         message += "<b>Set of cards:</b> Lost Wind Clif\n\n"
+    #         message += f"<b>Server:</b> {servidor}\n"
     #         message += "<b>Local:</b> East Luterra / Borea's Domain\n"
     #         message += "<b>Item</b>: Seria\n"
-    #         message += f"<b>Mapa: <a href='{boreas_domain}'>Borea's Domain</a></b>\n\n"
-    #         message += f"<b>O NPC irá embora em: {final_t}</b>"
+    #         message += f"<b>Map: <a href='{boreas_domain}'>Borea's Domain</a></b>\n\n"
+    #         message += f"<b>The NPC will leave in: {final_t}</b>"
     #         # Envia a mensagem
     #         send_message(message, chatID)
     #         processed_itens.add('Seria')
 
     #     elif "Croconys Seashore" in local_str and 'Seria' not in processed_itens:
-    #         message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-    #         message += "<b>Set de cartas:</b> Lost Wind Clif\n\n"
-    #         message += f"<b>Servidor:</b> {servidor}\n"
+    #         message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+    #         message += "<b>Set of cards:</b> Lost Wind Clif\n\n"
+    #         message += f"<b>Server:</b> {servidor}\n"
     #         message += "<b>Local:</b> East Luterra / Croconys Seashore\n"
     #         message += "<b>Item</b>: Seria\n"
-    #         message += f"<b>Mapa: <a href='{croconys_seashore}'>Croconys Seashore</a></b>\n\n"
-    #         message += f"<b>O NPC irá embora em: {final_t}</b>"
+    #         message += f"<b>Map: <a href='{croconys_seashore}'>Croconys Seashore</a></b>\n\n"
+    #         message += f"<b>The NPC will leave in: {final_t}</b>"
     #         # Envia a mensagem
     #         send_message(message, chatID)
     #         processed_itens.add('Seria')
@@ -1043,61 +1041,61 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
     #     icewing_heights = 'https://assets.maxroll.gg/wordpress/wandering_merchant_jeffrey_icewing_heights_v2.jpg'
 
     #     if 'Frozen Sea' in local_str:
-    #         message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-    #         message += "<b>Set de cartas:</b> We'll meet again\n\n"
+    #         message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+    #         message += "<b>Set of cards:</b> We'll meet again\n\n"
     #         message += "<b>Local:</b> Shushire / Frozen Sea\n"
-    #         message += f"<b>Servidor:</b> {servidor}\n"
+    #         message += f"<b>Server:</b> {servidor}\n"
     #         message += "<b>Item</b>: Sian\n"
-    #         message += f"<b>Mapa: <a href='{frozen_sea}'>Frozen Sea</a></b>\n\n"
-    #         message += f"<b>O NPC irá embora em: {final_t}</b>"
+    #         message += f"<b>Map: <a href='{frozen_sea}'>Frozen Sea</a></b>\n\n"
+    #         message += f"<b>The NPC will leave in: {final_t}</b>"
     #         # Envia a mensagem
     #         send_message(message, chatID)
     #         processed_itens.add('Sian')
 
     #     elif 'Bitterwind Hill' in local_str:
-    #         message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-    #         message += "<b>Set de cartas:</b> We'll meet again\n\n"
-    #         message += f"<b>Servidor:</b> {servidor}\n"
+    #         message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+    #         message += "<b>Set of cards:</b> We'll meet again\n\n"
+    #         message += f"<b>Server:</b> {servidor}\n"
     #         message += "<b>Local:</b> Shushire / Bitterwind Hill\n"
     #         message += "<b>Item</b>: Sian\n"
-    #         message += f"<b>Mapa: <a href='{bitterwind_hill}'>Bitterwind Hill</a></b>\n\n"
-    #         message += f"<b>O NPC irá embora em: {final_t}</b>"
+    #         message += f"<b>Map: <a href='{bitterwind_hill}'>Bitterwind Hill</a></b>\n\n"
+    #         message += f"<b>The NPC will leave in: {final_t}</b>"
     #         # Envia a mensagem
     #         send_message(message, chatID)
     #         processed_itens.add('Sian')
 
     #     elif 'Iceblood Plateau' in local_str:
-    #         message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-    #         message += "<b>Set de cartas:</b> We'll meet again\n\n"
-    #         message += f"<b>Servidor:</b> {servidor}\n"
+    #         message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+    #         message += "<b>Set of cards:</b> We'll meet again\n\n"
+    #         message += f"<b>Server:</b> {servidor}\n"
     #         message += "<b>Local:</b> Shushire / Iceblood Plateau\n"
     #         message += "<b>Item</b>: Sian\n"
-    #         message += f"<b>Mapa: <a href='{iceblood_plateau}'>Iceblood Plateau</a></b>\n\n"
-    #         message += f"<b>O NPC irá embora em: {final_t}</b>"
+    #         message += f"<b>Map: <a href='{iceblood_plateau}'>Iceblood Plateau</a></b>\n\n"
+    #         message += f"<b>The NPC will leave in: {final_t}</b>"
     #         # Envia a mensagem
     #         send_message(message, chatID)
     #         processed_itens.add('Sian')
 
     #     elif 'Lake Eternity' in local_str:
-    #         message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-    #         message += "<b>Set de cartas:</b> We'll meet again\n\n"
-    #         message += f"<b>Servidor:</b> {servidor}\n"
+    #         message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+    #         message += "<b>Set of cards:</b> We'll meet again\n\n"
+    #         message += f"<b>Server:</b> {servidor}\n"
     #         message += "<b>Local:</b> Shushire / Lake Eternity\n"
     #         message += "<b>Item</b>: Sian\n"
-    #         message += f"<b>Mapa: <a href='{lake_eternity}'>Lake Eternity</a></b>\n\n"
-    #         message += f"<b>O NPC irá embora em: {final_t}</b>"
+    #         message += f"<b>Map: <a href='{lake_eternity}'>Lake Eternity</a></b>\n\n"
+    #         message += f"<b>The NPC will leave in: {final_t}</b>"
     #         # Envia a mensagem
     #         send_message(message, chatID)
     #         processed_itens.add('Sian')
 
     #     elif 'Icewing Heights' in local_str:
-    #         message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-    #         message += "<b>Set de cartas:</b> We'll meet again\n\n"
-    #         message += f"<b>Servidor:</b> {servidor}\n"
+    #         message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+    #         message += "<b>Set of cards:</b> We'll meet again\n\n"
+    #         message += f"<b>Server:</b> {servidor}\n"
     #         message += "<b>Local:</b> Shushire / Icewing Heights\n"
     #         message += "<b>Item</b>: Sian\n"
-    #         message += f"<b>Mapa: <a href='{icewing_heights}'>Icewing Heights</a></b>\n\n"
-    #         message += f"<b>O NPC irá embora em: {final_t}</b>"
+    #         message += f"<b>Map: <a href='{icewing_heights}'>Icewing Heights</a></b>\n\n"
+    #         message += f"<b>The NPC will leave in: {final_t}</b>"
     #         # Envia a mensagem
     #         send_message(message, chatID)
     #         processed_itens.add('Sian')
@@ -1114,61 +1112,61 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         icewing_heights = 'https://assets.maxroll.gg/wordpress/wandering_merchant_jeffrey_icewing_heights_v2.jpg'
 
         if 'Frozen Sea' in local_str:
-            message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-            message += "<b>Set de cartas:</b> We'll meet again\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+            message += "<b>Set of cards:</b> We'll meet again\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Shushire / Frozen Sea\n"
             message += "<b>Item</b>: Madnick\n"
-            message += f"<b>Mapa: <a href='{frozen_sea}'>Frozen Sea</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{frozen_sea}'>Frozen Sea</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Madnick')
 
         elif 'Bitterwind Hill' in local_str:
-            message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-            message += "<b>Set de cartas:</b> We'll meet again\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+            message += "<b>Set of cards:</b> We'll meet again\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Shushire / Bitterwind Hill\n"
             message += "<b>Item</b>: Madnick\n"
-            message += f"<b>Mapa: <a href='{bitterwind_hill}'>Bitterwind Hill</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{bitterwind_hill}'>Bitterwind Hill</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Madnick')
 
         elif 'Iceblood Plateau' in local_str:
-            message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-            message += "<b>Set de cartas:</b> We'll meet again\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+            message += "<b>Set of cards:</b> We'll meet again\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Shushire / Iceblood Plateau\n"
             message += "<b>Item</b>: Madnick\n"
-            message += f"<b>Mapa: <a href='{iceblood_plateau}'>Iceblood Plateau</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{iceblood_plateau}'>Iceblood Plateau</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Madnick')
 
         elif 'Lake Eternity' in local_str:
-            message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-            message += "<b>Set de cartas:</b> We'll meet again\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+            message += "<b>Set of cards:</b> We'll meet again\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Shushire / Lake Eternity\n"
             message += "<b>Item</b>: Madnick\n"
-            message += f"<b>Mapa: <a href='{lake_eternity}'>Lake Eternity</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{lake_eternity}'>Lake Eternity</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Madnick')
 
         elif 'Icewing Heights' in local_str:
-            message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-            message += "<b>Set de cartas:</b> We'll meet again\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+            message += "<b>Set of cards:</b> We'll meet again\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Shushire / Icewing Heights\n"
             message += "<b>Item</b>: Madnick\n"
-            message += f"<b>Mapa: <a href='{icewing_heights}'>Icewing Heights</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{icewing_heights}'>Icewing Heights</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Madnick')
@@ -1184,49 +1182,49 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         forest_of_giants = 'https://assets.maxroll.gg/wordpress/wandering_merchant_oliver_forest_of_giants.jpg'
 
         if 'Seaswept Woods' in local_str:
-            message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-            message += "<b>Set de cartas:</b> Forest of giants\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+            message += "<b>Set of cards:</b> Forest of giants\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Tortoyk / Seaswept Woods\n"
             message += "<b>Item</b>: Mokamoka\n"
-            message += f"<b>Mapa: <a href='{seaswept_woods}'>Seaswept Woods</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{seaswept_woods}'>Seaswept Woods</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Mokamoka')
 
         elif 'Sweetwater Forest' in local_str:
-            message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-            message += "<b>Set de cartas:</b> Forest of giants\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+            message += "<b>Set of cards:</b> Forest of giants\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Tortoyk / Sweetwater Forest\n"
             message += "<b>Item</b>: Mokamoka\n"
-            message += f"<b>Mapa: <a href='{sweetwater_forest}'>Sweetwater Forest</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{sweetwater_forest}'>Sweetwater Forest</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Mokamoka')
 
         elif 'Skyreach Steppe' in local_str:
-            message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-            message += "<b>Set de cartas:</b> Forest of giants\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+            message += "<b>Set of cards:</b> Forest of giants\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Tortoyk / Skyreach Steppe\n"
             message += "<b>Item</b>: Mokamoka\n"
-            message += f"<b>Mapa: <a href='{skyreach_steppe}'>Skyreach Steppe</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{skyreach_steppe}'>Skyreach Steppe</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Mokamoka')
 
         elif 'Forest of Giants' in local_str:
-            message = "<b>ITEM IMPORTANTE ENCONTRADO!</b>\n\n"
-            message += "<b>Set de cartas:</b> Forest of giants\n\n"
-            message += f"<b>Servidor:</b> {servidor}\n"
+            message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+            message += "<b>Set of cards:</b> Forest of giants\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Tortoyk / Forest of Giants\n"
             message += "<b>Item</b>: Mokamoka\n"
-            message += f"<b>Mapa: <a href='{forest_of_giants}'>Forest of Giants</a></b>\n\n"
-            message += f"<b>O NPC irá embora em: {final_t}</b>"
+            message += f"<b>Map: <a href='{forest_of_giants}'>Forest of Giants</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
             send_message(message, chatID)
             processed_itens.add('Mokamoka')
