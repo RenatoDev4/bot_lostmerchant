@@ -7,6 +7,7 @@ import telebot
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
@@ -15,12 +16,12 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 
 chrome_options = Options()
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+service = Service("CHROMEDRIVER_PATH")
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-dev-shm-usage')
 
-driver = webdriver.Chrome(executable_path=os.environ.get(
-    "CHROMEDRIVER_PATH"), options=chrome_options)
+driver = webdriver.Chrome(service=service, options=chrome_options)
 driver.get("https://lostmerchants.com/")
 
 
@@ -93,7 +94,6 @@ for time_ in data_tempo:
             final_t = final_tempo.text
             final_t = final_t.replace("Expires in ", "")
             dic_merchant['tempo'].append(final_t)
-            print(final_t)
 
 # PEGA OS LOCAIS E ITENS DO SITE
 data = soup.find_all('div', class_='merchant merchant-grid__item')
@@ -105,13 +105,11 @@ for merchant in data:
     for title in local:
         final_local = title.text
         dic_merchant['local'].append(final_local)
-        print(final_local)
 
     itens = merchant.find_all('div', class_='stock__item')
     for w_itens in itens:
         final_itens = w_itens.text
         dic_merchant['itens'].append(final_itens)
-        print(final_itens)
 
 
 local_str = ' '.join([s for s in dic_merchant['local'] if isinstance(s, str)])
