@@ -13,7 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
 
-def run_bot(dropdown_server_region_text, dropdown2_text, chatID, file_path):
+def run_bot(dropdown_server_region_text, server, dropdown2_text, chatID, file_path):
 
     # URL
     chrome_options = Options()
@@ -51,7 +51,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, chatID, file_path):
         AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"}
 
     # Servidor
-    servidor = "Kazeros / SA"
+    servidor = server
 
     # Salva o item de Luterra para não enviar em duplicidade
     processed_itens = set()
