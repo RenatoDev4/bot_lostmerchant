@@ -121,7 +121,8 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
                  "Fine Gramophone", "Vern's Founding Coin", "Sirius's Holy Book",
                  "Sylvain Queens' Blessing", "Fargar's Beer", "Red Moon Tears",
                  "Oreha Viewing Stone", "Necromancer's Records", "Warm Earmuffs",
-                 "Seria", "Sian", "Madnick", "Mokamoka"]
+                 "Seria", "Sian", "Madnick", "Mokamoka", "Balthorr", "Delain Armen",
+                 "Jederico"]
 
     # Usa expressões regulares para encontrar as palavras em cada string
     local_matches = [re.search(word, local_str) for word in locals_loa]
@@ -305,6 +306,48 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
             send_message(message, chatID)
             processed_itens.add('Chain War Chronicles')
 
+        # ------ EAST LUTERRA (MORRIS) "Delain Armen" ------
+
+    if any(match is not None and match.group() == 'Delain Armen' for match in itens_matches):
+
+        # URLS DOS MAPAS DE EAST LUTERRA (NPC MORRIS)
+        dyorika_plains = 'https://assets.maxroll.gg/wordpress/morris_dyorika_plains_10.jpg'
+        sunbright_hill = 'https://assets.maxroll.gg/wordpress/morris_sunbright_hill_10.jpg'
+        flowering_orchard = 'https://assets.maxroll.gg/wordpress/morris_flowering_orchard_10.jpg'
+
+        if 'Dyorika Plain' in local_str and 'Delain Armen' not in processed_itens:
+            message = "<b>LEGENDARY DELAIN ARMEN FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
+            message += "<b>Local:</b> East Luterra / Dyorika Plain\n"
+            message += "<b>Item</b>: Delain Armen\n"
+            message += f"<b>Map: <a href='{dyorika_plains}'>Dyorika Plain</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
+            # Envia a mensagem
+            send_message(message, chatID)
+            processed_itens.add('Delain Armen')
+
+        elif 'Sunbright Hill' in local_str and 'Delain Armen' not in processed_itens:
+            message = "<b>LEGENDARY DELAIN ARMEN FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
+            message += "<b>Local:</b> East Luterra / Sunbright Hill\n"
+            message += "<b>Item</b>: Delain Armen\n"
+            message += f"<b>Map: <a href='{sunbright_hill}'>Sunbright Hill</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
+            # Envia a mensagem
+            send_message(message, chatID)
+            processed_itens.add('Delain Armen')
+
+        elif 'Flowering Orchard' in local_str and 'Delain Armen' not in processed_itens:
+            message = "<b>LEGENDARY DELAIN ARMEN FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
+            message += "<b>Local:</b> East Luterra / Flowering Orchard\n"
+            message += "<b>Item</b>: Delain Armen\n"
+            message += f"<b>Map: <a href='{flowering_orchard}'>Flowering Orchard</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
+            # Envia a mensagem
+            send_message(message, chatID)
+            processed_itens.add('Delain Armen')
+
     # ------ EAST LUTERRA (BURT) ------
 
     if any(match is not None and match.group() == 'Chain War Chronicles' for match in itens_matches):
@@ -482,7 +525,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
         prisma_valley = 'https://assets.maxroll.gg/wordpress/traveling_merchant_mac_mirror_valley.jpg'
 
         if 'Delphi Township' in local_str:
-            message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
+            message = "<b>LEGENDARY WEI FOUND!</b>\n\n"
             message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Delphi Township\n"
             message += "<b>Item</b>: Wei\n"
@@ -492,7 +535,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
             send_message(message, chatID)
 
         elif 'Rattan Hill' in local_str:
-            message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
+            message = "<b>LEGENDARY WEI FOUND!</b>\n\n"
             message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Rattan Hill\n"
             message += "<b>Item</b>: Wei\n"
@@ -502,7 +545,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
             send_message(message, chatID)
 
         elif 'Melody Forest' in local_str:
-            message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
+            message = "<b>LEGENDARY WEI FOUND!</b>\n\n"
             message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Melody Forest\n"
             message += "<b>Item</b>: Wei\n"
@@ -512,7 +555,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
             send_message(message, chatID)
 
         elif 'Twilight Mists' in local_str:
-            message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
+            message = "<b>LEGENDARY WEI FOUND!</b>\n\n"
             message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Twilight Mists\n"
             message += "<b>Item</b>: Wei\n"
@@ -522,7 +565,7 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
             send_message(message, chatID)
 
         elif 'Prisma Valley' in local_str:
-            message = "<b>WEI LENDARIO ENCONTRADO!</b>\n\n"
+            message = "<b>LEGENDARY WEI FOUND!</b>\n\n"
             message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Anikka / Prisma Valley\n"
             message += "<b>Item</b>: Wei\n"
@@ -847,6 +890,67 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
             # Envia a mensagem
             send_message(message, chatID)
 
+        # ------ YORN "Balthorr"------
+
+    if any(match is not None and match.group() == "Balthorr" for match in itens_matches):
+
+        # URLS DOS MAPAS DE ANIKKA
+        yorns_cradle = 'https://assets.maxroll.gg/wordpress/laitir_yorns_cradle_v1.jpg'
+        unfinished_garden = 'https://assets.maxroll.gg/wordpress/laitir_unfinished_garden_v1.jpg'
+        black_anvil_mine = 'https://assets.maxroll.gg/wordpress/laitir_black_anvil_mine_v1.jpg'
+        iron_hammer_mine = 'https://assets.maxroll.gg/wordpress/laitir_iron_hammer_mine_v1.jpg'
+        hall_of_promise = 'https://assets.maxroll.gg/wordpress/laitir_hall_of_promise.jpg'
+
+        if "Yorn's Cradle" in local_str:
+            message = "<b>LEGENDARY BALTHORR FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
+            message += "<b>Local:</b> Yorn / Yorn's Cradle\n"
+            message += "<b>Item</b>: Balthorr\n"
+            message += f"<b>Map: <a href='{yorns_cradle}'>Yorn's Cradle</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
+            # Envia a mensagem
+            send_message(message, chatID)
+
+        elif "Unfinished Garden" in local_str:
+            message = "<b>LEGENDARY BALTHORR FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
+            message += "<b>Local:</b> Yorn / Unfinished Garden\n"
+            message += "<b>Item</b>: Balthorr\n"
+            message += f"<b>Map: <a href='{unfinished_garden}'>Unfinished Garden</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
+            # Envia a mensagem
+            send_message(message, chatID)
+
+        elif "Black Anvil Mine" in local_str:
+            message = "<b>LEGENDARY BALTHORR FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
+            message += "<b>Local:</b> Yorn / Black Anvil Mine\n"
+            message += "<b>Item</b>: Balthorr\n"
+            message += f"<b>Map: <a href='{black_anvil_mine}'>Black Anvil Mine</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
+            # Envia a mensagem
+            send_message(message, chatID)
+
+        elif "Iron Hammer Mine" in local_str:
+            message = "<b>LEGENDARY BALTHORR FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
+            message += "<b>Local:</b> Yorn / Iron Hammer Mine\n"
+            message += "<b>Item</b>: Balthorr\n"
+            message += f"<b>Map: <a href='{iron_hammer_mine}'>Iron Hammer Mine</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
+            # Envia a mensagem
+            send_message(message, chatID)
+
+        elif "Hall of Promise" in local_str:
+            message = "<b>LEGENDARY BALTHORR FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
+            message += "<b>Local:</b> Yorn / Hall of Promise\n"
+            message += "<b>Item</b>: Balthorr\n"
+            message += f"<b>Map: <a href='{hall_of_promise}'>Hall of Promise</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
+            # Envia a mensagem
+            send_message(message, chatID)
+
     # ------ FEITON ------
 
     if any(match is not None and match.group() == "Red Moon Tears" for match in itens_matches):
@@ -859,6 +963,23 @@ def run_bot(dropdown_server_region_text, dropdown2_text, server, chatID):
             message += f"<b>Server:</b> {servidor}\n"
             message += "<b>Local:</b> Feiton / Kalaja\n"
             message += "<b>Item</b>: Red Moon Tears\n"
+            message += f"<b>Map: <a href='{kalaja}'>Kalaja</a></b>\n\n"
+            message += f"<b>The NPC will leave in: {final_t}</b>"
+            # Envia a mensagem
+            send_message(message, chatID)
+
+        # ------ FEITON (Jederico)------
+
+    if any(match is not None and match.group() == "Jederico" for match in itens_matches):
+
+        # URLS DOS MAPAS DE ANIKKA
+        kalaja = 'https://assets.maxroll.gg/wordpress/feiton_wandering_merchant_v1.jpg'
+
+        if "Kalaja" in local_str:
+            message = "<b>IMPORTANT ITEM FOUND!</b>\n\n"
+            message += f"<b>Server:</b> {servidor}\n"
+            message += "<b>Local:</b> Feiton / Kalaja\n"
+            message += "<b>Item</b>: Jederico\n"
             message += f"<b>Map: <a href='{kalaja}'>Kalaja</a></b>\n\n"
             message += f"<b>The NPC will leave in: {final_t}</b>"
             # Envia a mensagem
